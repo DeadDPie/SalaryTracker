@@ -1,7 +1,7 @@
 from typing import List, Union
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, validator, constr
 
 
 class Salary(BaseModel):
-    id: int  # uuid.UUID
-    email: str  # TODO: EmailStr (install pydantic[email], then "from pydantic import EmailStr")
+    salary: float
+    salary_rise_date: constr(regex=r'^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$') = '2023-09-22'
