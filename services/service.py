@@ -4,7 +4,8 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt
 import jwt
 import json
-
+from fastapi.responses import JSONResponse
+from database.database import DB as data
 SECRET_KEY = "wow3man3i3love3dancing5and2eating8also9i8am3keen7on8cats"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
@@ -58,3 +59,4 @@ class Service:
                                app.config['SECRET_KEY'])
 
             return jsonify({'token': token.decode('UTF-8')})
+service = Service()

@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from schemas.salary_schema import Salary
+from services import service
 
 router = APIRouter()
 
@@ -9,5 +10,5 @@ router = APIRouter()
     status_code=200,
     response_model=list[Salary], )
 def get_salary():
-    return user_service.get_salary()
+    return service.get_salary()
 
