@@ -1,0 +1,5 @@
+{
+    "user1": {"salary": 1000, "next_increase_date": "2023-07-01"},
+    "user2": {"salary": 2000, "next_increase_date": "2023-08-01"},
+    "user3": {"salary": 3000, "next_increase_date": "2023-09-01"},
+}

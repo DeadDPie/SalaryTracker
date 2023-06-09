@@ -8,6 +8,6 @@ router = APIRouter()
     "/salary",
     status_code=200,
     response_model=list[Salary], )
-def get_users():
-    return user_service.get_users()
+def get_salary():
+    return user_service.get_salary()
 
