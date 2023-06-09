@@ -1,20 +1,20 @@
 {
     "user1": {
-        "id": "rtgh",
+        "id": "3beeb1f1-2ec2-475e-bd38-4952f2e4235b",
         "email": "rtybjn@mail.ru",
-
+        "username": "Kolya",
         "hashed_password": "UaVS",
         "salary": "60000"},
     "user2": {
-        "id": "erer",
+        "id": "2831e77b-463d-4678-b261-cb52684db28a",
         "email": "qwerty@mail.ru",
-
+        "username": "Jane",
         "hashed_password": "hgff",
         "salary": "20000"},
     "user3": {
-        "id": "dfg",
+        "id": "f12fa086-3655-425a-8c82-86d7c815c021",
         "email": "sefdg@mail.ru",
-
+        "username": "Olesya",
         "hashed_password": "UaVnbvS",
-        "salary": "100000"}
+        "salary": "500000"}
 }
