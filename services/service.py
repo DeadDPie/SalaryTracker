@@ -1,9 +1,5 @@
 from typing import Optional
 from fastapi import FastAPI, Depends, HTTPException
-from datetime import datetime, timedelta
-import jwt
-import json
-from fastapi.responses import JSONResponse
 from database.database import DB as data
 from schemas import Salary
 from schemas.user_schema import User
