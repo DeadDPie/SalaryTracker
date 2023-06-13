@@ -1,12 +1,12 @@
 {
-    "user1": {
+    "Kolya": {
         "id": "3beeb1f1-2ec2-475e-bd38-4952f2e4235b",
         "email": "rtybjn@mail.ru",
         "username": "Kolya",
         "hashed_password": "UaVS",
         "salary": "60000",
     "salary_rise_date": "2023-10-22"},
-    "user2": {
+    "Jane": {
         "id": "2831e77b-463d-4678-b261-cb52684db28a",
         "email": "qwerty@mail.ru",
         "username": "Jane",
@@ -14,7 +14,7 @@
         "salary": "20000",
     "salary_rise_date": "2023-11-22"},
 
-    "user3": {
+    "Olesya": {
         "id": "f12fa086-3655-425a-8c82-86d7c815c021",
         "email": "sefdg@mail.ru",
         "username": "Olesya",
