@@ -16,10 +16,10 @@ router = APIRouter()
 def get_users()->List[User]:
     return service.get_users()
 
-@router.post("/token",
-status_code=200,
-    #response_model=Token,
-#summary="Создание токена"
-)
-def creare_token():
-    return auth.create_access_token()
+# @router.post("/token",
+# status_code=200,
+#     #response_model=Token,
+# #summary="Создание токена"
+# )
+# def creare_token():
+#     return auth.create_access_token()

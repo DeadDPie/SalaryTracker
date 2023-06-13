@@ -1,11 +1,10 @@
-from fastapi import APIRouter
 from database.database import DB as users_db
 from fastapi import APIRouter, HTTPException, security, Depends
 from schemas import User, Salary
 from schemas.token_schema import Token
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 
-from services.auth import get_current_user, create_access_token
+from services.auth import get_current_user, create_access_token, authenticate_user
 
 router = APIRouter()
 
@@ -22,12 +21,13 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
              status_code=200,
              summary="Создание токена"
 )
-async def create_token(form_data: OAuth2PasswordRequestForm = Depends()):
+def create_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(form_data.username, form_data.password)
     if not user:
         raise HTTPException(status_code=401, detail='Incorrect username or password')
-    access_token = create_access_token(user=user)
-    return {"access_token": access_token, "token_type": "bearer"}
+    access_token = create_access_token(user=user)#TODO:IS there problem
+    print("Ac"*10, access_token, type(access_token))
+    return Token(access_token= access_token["access_token"], token_type= "bearer")
 
 @router.get(
     "/salary",
@@ -35,7 +35,7 @@ async def create_token(form_data: OAuth2PasswordRequestForm = Depends()):
     response_model=Salary,
     summary="Зарплата"
 )
-async def get_salary(current_worker: dict = Depends(get_current_user)):#TODO: Salary
+def get_salary(current_worker: dict = Depends(get_current_user)):#TODO: Salary
     return  {"salary": current_worker["salary"],
              "salary_rise_date": current_worker["salary_rise_date"]}
 

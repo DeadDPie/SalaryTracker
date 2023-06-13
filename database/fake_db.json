@@ -3,7 +3,7 @@
         "id": "3beeb1f1-2ec2-475e-bd38-4952f2e4235b",
         "email": "rtybjn@mail.ru",
         "username": "Kolya",
-        "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
+        "hashed_password": "1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
         "salary": "60000",
     "salary_rise_date": "2023-10-22"},
     "Jane": {
@@ -18,7 +18,7 @@
         "id": "f12fa086-3655-425a-8c82-86d7c815c021",
         "email": "sefdg@mail.ru",
         "username": "Olesya",
-        "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
+        "hashed_password": "sbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
         "salary": "500000",
         "salary_rise_date": "2023-09-22"
     }
