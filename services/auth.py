@@ -3,7 +3,6 @@ from fastapi import HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from starlette import status
-import os
 from datetime import datetime, timedelta
 from typing import Union, Any
 from jose import jwt
@@ -23,7 +22,7 @@ from datetime import datetime, timedelta
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 SECRET_KEY="wow3man3i3love3dancing5and2eating8also9i8am3keen7on8cats"
 ALGORITHM="HS256"
-JWT_REFRESH_SECRET_KEY = os.environ['JWT_REFRESH_SECRET_KEY']
+JWT_REFRESH_SECRET_KEY = 'JWT_REFRESH_SECRET_KEY'
 REFRESH_TOKEN_EXPIRE_MINUTES = 60
 #pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
