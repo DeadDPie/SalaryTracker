@@ -1,8 +1,6 @@
 from datetime import date
-from typing import List, Union
-from pydantic import BaseModel, validator, constr
-
+from pydantic import BaseModel
 
 class Salary(BaseModel):
     salary: str
-    salary_rise_date: date #constr(regex=r'^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$') = "2023-09-22"
+    salary_rise_date: date #"2023-09-22"

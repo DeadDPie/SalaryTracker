@@ -1,8 +1,7 @@
 from typing import List
-
 from fastapi import APIRouter
 from schemas.user_schema import User
-from services import service, auth
+from services import service
 
 router = APIRouter()
 
@@ -15,11 +14,3 @@ router = APIRouter()
 )
 def get_users()->List[User]:
     return service.get_users()
-
-# @router.post("/token",
-# status_code=200,
-#     #response_model=Token,
-# #summary="Создание токена"
-# )
-# def creare_token():
-#     return auth.create_access_token()
