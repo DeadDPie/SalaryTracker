@@ -4,7 +4,6 @@ from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from starlette import status
 from database.database import DB as users_db
-import jwt
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 
