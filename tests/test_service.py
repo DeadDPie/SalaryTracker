@@ -24,6 +24,7 @@ def test_auth_create_token():
     """
     response = client.post("/api/token", data={"username":var.username,"password":var.password})
     assert response.status_code == 200
+    assert "access_token" in response.json()
 
 def test_auth_wrong_create_token():
     """
@@ -31,6 +32,15 @@ def test_auth_wrong_create_token():
     """
     response = client.post("/api/token", data={"username":"wrong","password":var.password})
     assert response.status_code == 401
+    assert response.json() == {"detail": "Incorrect username"}
+
+def test_password_wrong_create_token():
+    """
+        Создание токена для работника с некорректным password
+    """
+    response = client.post("/api/token", data={"username":"wrong","password":var.password})
+    assert response.status_code == 401
+    assert response.json() == {"detail": "Incorrect password"}
 def test_not_auth_create_token():
     """
        Создание токена для неавторизованного работника

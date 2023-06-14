@@ -43,8 +43,13 @@ def authenticate_user(username: str, password: str):
     except Exception:
         raise HTTPException(
             status_code=401,
-            detail="Работник не найден",
+            detail="Incorrect username",
         )
-    # if not password_context.verify(password, user["hashed_password"]):#TODO:hashed password
+    if password != users_db.data[password]:
+        raise HTTPException(
+            status_code=401,
+            detail="Incorrect password",
+        )
+    #if not password_context.verify(password, user["hashed_password"]):#TODO:hashed password
     #     return False
     return users_db.data[username]
