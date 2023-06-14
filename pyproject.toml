@@ -12,6 +12,7 @@ pydantic = {extras = ["email"], version = "^1.10.9"}
 python-multipart = "^0.0.6"
 python-jose = "^3.3.0"
 pytest = "^7.3.2"
+httpx = "^0.24.1"
 
 [tool.poetry.group.dev.dependencies]
 passlib = "^1.7.4"
