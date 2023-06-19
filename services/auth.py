@@ -29,7 +29,6 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
     except JWTError:
         raise credentials_exception
-    print(payload)
     return payload
 
 def authenticate_user(username: str, password: str):
