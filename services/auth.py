@@ -15,13 +15,6 @@ ALGORITHM="HS256"
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/token")
 pwd_context = CryptContext(schemes=["bcrypt"], bcrypt__rounds=12)
 
-hashed_password = pwd_context.hash("ilovecats")
-
-is_valid = pwd_context.verify("ilovecats", users_db.data["Olesya"]["hashed_password"])
-isv = pwd_context.verify("ilovecats", users_db.data["hashed_password"])
-print(isv, "  e ")
-print(hashed_password)
-print(is_valid)
 
 def create_access_token(user: dict)->dict:
     user["exp"] = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
