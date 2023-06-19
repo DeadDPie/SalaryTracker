@@ -1,8 +1,7 @@
-import uvicorn
 from fastapi import FastAPI
 from api import router
 from fastapi.middleware.cors import CORSMiddleware
-
+import uvicorn
 
 app = FastAPI(title="SalaryTracker")
 origins = ["*"] #позволили всем сайтам обращаться к бэку
