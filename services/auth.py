@@ -1,4 +1,3 @@
-# from typing import Optional, Union, Annotated
 from fastapi import HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
@@ -6,20 +5,23 @@ from starlette import status
 from database.database import DB as users_db
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
-
-
+#Kolya - TheBestPassword
+#Jane - 123
+#Olesya - ilovecats
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 SECRET_KEY="wow3man3i3love3dancing5and2eating8also9i8am3keen7on8cats"
 ALGORITHM="HS256"
 
-password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/token")
+pwd_context = CryptContext(schemes=["bcrypt"], bcrypt__rounds=12)
 
-def get_hashed_password(password: str) -> str:
-    return password_context.hash(password)
+hashed_password = pwd_context.hash("ilovecats")
 
-def verify_password(password: str, hashed_pass: str) -> bool:
-    return password_context.verify(password, hashed_pass)
+is_valid = pwd_context.verify("ilovecats", users_db.data["Olesya"]["hashed_password"])
+isv = pwd_context.verify("ilovecats", users_db.data["hashed_password"])
+print(isv, "  e ")
+print(hashed_password)
+print(is_valid)
 
 def create_access_token(user: dict)->dict:
     user["exp"] = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
@@ -45,11 +47,9 @@ def authenticate_user(username: str, password: str):
             status_code=401,
             detail="Incorrect username",
         )
-    if password != users_db.data[password]:
+    if  not pwd_context.verify(password, users_db.data[username]["hashed_password"]):
         raise HTTPException(
             status_code=401,
             detail="Incorrect password",
         )
-    #if not password_context.verify(password, user["hashed_password"]):#TODO:hashed password
-    #     return False
     return users_db.data[username]
