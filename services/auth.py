@@ -37,11 +37,11 @@ def authenticate_user(username: str, password: str):
     except Exception:
         raise HTTPException(
             status_code=401,
-            detail="Incorrect username",
+            detail="Incorrect username or password",
         )
     if  not pwd_context.verify(password, users_db.data[username]["hashed_password"]):
         raise HTTPException(
             status_code=401,
-            detail="Incorrect password",
+            detail="Incorrect username or password",
         )
     return users_db.data[username]
