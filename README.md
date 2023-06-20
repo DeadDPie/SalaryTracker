@@ -35,7 +35,7 @@
 
 Создаём образ `docker build -t myimage .`
 
-Создаём контейнер на основе образа ` docker run -d --name mycontainer -p 80:80 myimage
+Создаём контейнер на основе образа `docker run -d --name mycontainer -p 80:80 myimage`
 
 Прописываем `docker logs` и id контейнера
 
@@ -57,7 +57,7 @@
 - После запуска, API доступно по адресу `http://localhost:8000/docs`
 
 ## Тестирование
+Для запуска виртуального окружения выполнить команду `poetry shell`
 
-Перейти в папку tests
+В переменную среды добавляем значение пути до проекта и запускаем тесты, выполнив команду `export PYTHONPATH=$(pwd) && pytest -v`
 
-Запустить test_service.py
